@@ -67,7 +67,7 @@ var buyFruit = function (fruit){
     //if money is less than .50 stop interval
     if (totalMonies < 0.50 ){
       clearInterval(interval);
-      alert('NO MORE MONIES!!!')
+      alert('NO MORE MONIES!!!');
     }
     //call display and calculate
     displayFruit();
@@ -170,14 +170,26 @@ var displayFruit = function () {
   if (appleAveragePrice > 0){
     $('#averageApple').html(appleAveragePrice.toLocaleString('USD', {style: 'currency', currency: "USD"}));
   }
+  else {
+    $('#averageApple').html('$0.00');
+  }
   if (bananaAveragePrice > 0){
     $('#averageBanana').html(bananaAveragePrice.toLocaleString('USD', {style: 'currency', currency: "USD"}));
+  }
+  else {
+    $('#averageBanana').html('$0.00');
   }
   if (grapeAveragePrice > 0){
     $('#averageGrape').html(grapeAveragePrice.toLocaleString('USD', {style: 'currency', currency: "USD"}));
   }
+  else {
+    $('#averageGrape').html('$0.00');
+  }
   if (orangeAveragePrice > 0){
     $('#averageOrange').html(orangeAveragePrice.toLocaleString('USD', {style: 'currency', currency: "USD"}));
+  }
+  else {
+    $('#averageOrange').html('$0.00');
   }
   // #[totalFruit] = fruitTotalPrice
   $('#totalApple').html(appleTotalPrice.toLocaleString('USD', {style: 'currency', currency: "USD"}));
