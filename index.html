@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fruit Stand HW</title>
+    <script src="jquery-3.1.0.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="bootstrap.min.css" media="screen" title="no title">
+    <link rel="stylesheet" href="style.css" media="screen" title="no title">
+    <script src="script.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
+</head>
+  <body>
+    <h1>fruitStrap.toggle()!</h1>
+
+<div class="container" id="gameStats">
+  <div class="col-xs-6">The Fruit Stand is open!<br><text id="totalTime">0:00</text></div>
+  <div class="col-xs-6">Next price change in<br><text id="countDown">:15</text></div>
+</div>
+
+<div class="container" id="fruitMarket">
+  <div class="row" id="fruitStand">
+     <div class="col-xs-3" id="appleStand"><p id="applePrice">$1.00</p>
+         <p><img src="images/apple.png"></p>
+         <button onclick="buyFruit('apple')" class="btn-success" id="buyApple">Buy!</button></div>
+     <div class="col-xs-3" id="orangeStand"><p id="orangePrice">$1.00</p>
+         <p><img src="images/orange.png"></p>
+         <button onclick="buyFruit('orange')" class="btn-success" id="buyOrange">Buy!</button></div>
+     <div class="col-xs-3" id="grapeStand"><p id="grapePrice">$1.00</p>
+         <p><img src="images/grape.jpg"></p>
+         <button onclick="buyFruit('grape')" class="btn-success" id="buyGrape">Buy!</button></div>
+     <div class="col-xs-3" id="bananaStand"><p id="bananaPrice">$1.00</p>
+         <p><img src="images/banana.jpg"></p>
+         <button onclick="buyFruit('banana')" class="btn-success" id="buyBanana">Buy!</button></div>
+  </div>
+  <div class="row" id="myBasket">
+    <div class="col-xs-3" id="appleBasket"><p><text id="appleCount">0 apples</text></p>
+      <p><img src="images/basket.jpg" ></p>
+      <p>Average price: <text id="averageApple">$0.00</text></p></div>
+    <div class="col-xs-3" id="orangeBasket"><p><text id="orangeCount">0 oranges</text></p>
+      <p><img src="images/basket.jpg" ></p>
+    <p>Average price: <text id="averageOrange">$0.00</text></p></div>
+    <div class="col-xs-3" id="grapeBasket"><p><text id="grapeCount">0 grapes</text></p>
+      <p><img src="images/basket.jpg" ></p>
+    <p>Average price: <text id="averageGrape">$0.00</text></p></div>
+    <div class="col-xs-3" id="bananaBasket"><p><text id="bananaCount">0 bananas</text></p>
+      <p><img src="images/basket.jpg" ></p>
+    <p>Average price: <text id="averageBanana">$0.00</text></p></div>
+  </div>
+</div>
+
+
+<div class="container" id="userStats">
+<div class="row">
+  <div class="col-xs-3">
+    <p>You spent<br><text id="totalApple">$0.00</text><br>on apples</p>
+  </div>
+  <div class="col-xs-3">
+    <p>You spent<br><text id="totalOrange">$0.00</text><br>on oranges</p>
+  </div>
+  <div class="col-xs-3">
+    <p>You spent<br><text id="totalGrape">$0.00</text><br>on grapes</p>
+  </div>
+  <div class="col-xs-3">
+    <p>You spent<br><text id="totalBanana">$0.00</text><br>on bananas</p>
+  </div>
+</div>
+<div id="myWallet" class="row col-xs-12">
+  You have: <text id="showMoney">$100.00</text></div>
+</div>
+
+  </body>
+</html>

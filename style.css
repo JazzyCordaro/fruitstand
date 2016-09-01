@@ -1,0 +1,54 @@
+.container {
+  border-width: 5px;
+  border-color: black;
+  border-style: solid;
+  /*box-sizing: initial;*/
+  background-color: white;
+}
+
+body {
+  text-align: center;
+  background-image: url(images/fruit-stand.jpg);
+background-size: cover;
+font-family: 'Arima Madurai', cursive;
+font-weight: bold;
+}
+
+
+.row {
+  margin: 10px;
+}
+
+img {
+  height: 85px;
+}
+
+h1{
+  color: white;
+  background-color: black;
+
+}
+
+#gameStats {
+  font-size: 20px;
+}
+
+#myBasket {
+  border-top: 5px solid black;
+  padding-top: 20px;
+}
+
+#myWallet {
+  font-size: 22px;
+}
+
+#userStats{
+  background: #FFEEEE; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #FFEEEE , #DDEFBB); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #FFEEEE , #DDEFBB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+#applePrice, #orangePrice, #grapePrice, #bananaPrice{
+  font-size: 20px;
+}
