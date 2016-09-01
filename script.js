@@ -201,11 +201,11 @@ var displayFruit = function () {
 
   for (var fruit in fruitsForSale) {
     if (fruitsForSale[fruit].price > totalMonies) {
-      $('#buy' + fruit.charAt(0).toUpperCase() + fruit.slice(1)).attr('class', '.btn-warning');
+      $('#buy' + fruit.charAt(0).toUpperCase() + fruit.slice(1)).addClass('btn-danger');
       $('#buy' + fruit.charAt(0).toUpperCase() + fruit.slice(1)).html('Can\'t Buy');
     }
     if (fruitsForSale[fruit].price < totalMonies) {
-      $('#buy' + fruit.charAt(0).toUpperCase() + fruit.slice(1)).removeClass('.btn-warning');
+      $('#buy' + fruit.charAt(0).toUpperCase() + fruit.slice(1)).removeClass('btn-danger');
       $('#buy' + fruit.charAt(0).toUpperCase() + fruit.slice(1)).html('Buy!');
     }
   }
