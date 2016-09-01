@@ -27,6 +27,7 @@ var interval = setInterval(function(){
     //update display
   } else {
     count--;
+
   }
 }, 1000);
 
@@ -45,14 +46,7 @@ var updatePrices = function () {
       fruitsForSale[fruit].price = 9.99;
     }
     console.log(fruitsForSale[fruit].price);
-    if (fruitsForSale[fruit].price > totalMonies) {
-      $('#buy' + fruit.charAt(0).toUpperCase() + fruit.slice(1)).attr('class', '.btn-warning');
-      $('#buy' + fruit.charAt(0).toUpperCase() + fruit.slice(1)).html('Can\'t Buy');
-    }
-    if (fruitsForSale[fruit].price < totalMonies) {
-      $('#buy' + fruit.charAt(0).toUpperCase() + fruit.slice(1)).removeClass('.btn-warning');
-      $('#buy' + fruit.charAt(0).toUpperCase() + fruit.slice(1)).html('Buy!');
-    }
+
   }
 
 };//end updatePrices
@@ -73,12 +67,13 @@ var buyFruit = function (fruit){
     //if money is less than .50 stop interval
     if (totalMonies < 0.50 ){
       clearInterval(interval);
+      alert('NO MORE MONIES!!!')
     }
     //call display and calculate
     displayFruit();
   }
 
-}
+};
 
 var displayFruit = function () {
   //create individual fruit arrays
@@ -192,4 +187,25 @@ var displayFruit = function () {
   //display
   //calculate total price of each fruit in inventory
 
-}
+  for (var fruit in fruitsForSale) {
+    if (fruitsForSale[fruit].price > totalMonies) {
+      $('#buy' + fruit.charAt(0).toUpperCase() + fruit.slice(1)).attr('class', '.btn-warning');
+      $('#buy' + fruit.charAt(0).toUpperCase() + fruit.slice(1)).html('Can\'t Buy');
+    }
+    if (fruitsForSale[fruit].price < totalMonies) {
+      $('#buy' + fruit.charAt(0).toUpperCase() + fruit.slice(1)).removeClass('.btn-warning');
+      $('#buy' + fruit.charAt(0).toUpperCase() + fruit.slice(1)).html('Buy!');
+    }
+  }
+};
+
+var sellFruit = function(fruit){
+  for (var i = 0; i < inventory.length; i++) {
+    if(inventory[i].name === fruit){
+      inventory.splice(i, 1);
+      totalMonies += fruitsForSale[fruit].price;
+      displayFruit();
+      break;
+    }
+  }
+};
