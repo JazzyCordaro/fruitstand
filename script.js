@@ -95,6 +95,7 @@ var interval = setInterval(function(){
   }//end outer if/else
 }, 1000);//end interval
 
+//calls displayFruit, called by buttons
 var buyFruit = function (fruit){
   //if not enough money can't buyFruit
   if ( totalMonies < fruitsForSale[fruit].price){
@@ -115,13 +116,14 @@ var buyFruit = function (fruit){
     //   // clearInterval(interval); removed stop as user should be able to sell at this point
     //   alert('NO MORE MONIES!!!');
     // }//end if
-    
+
     //call displayFruit
     displayFruit();
   }//end else
 };//end buyFruit
 
 //calculates inventory $$ amounts, updates full display
+//called by buyFruit, sellFruit, and interval
 var displayFruit = function () {
   //create individual fruit arrays
   var redGrapes = [];
@@ -295,6 +297,7 @@ var displayFruit = function () {
   //end button update
 };//end displayFruit
 
+//calls displayFruit, called by buttons and in the final interval
 var sellFruit = function(fruit){
   //start searching inventory for fruit
   for (var i = 0; i < inventory.length; i++) {
@@ -308,6 +311,7 @@ var sellFruit = function(fruit){
   }//end for
 };//end sellFruit
 
+//called by interval
 var updatePrices = function () {
   //go through each oject and change price property by random 0-.50
   for (var fruit in fruitsForSale) {
