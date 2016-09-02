@@ -27,8 +27,20 @@ $(document).ready(function(){
 //every second, update the count, the prices, and the display
 var interval = setInterval(function(){
   console.log('in set interval');
-  $('#countDown').html(':' + count);
-  $('#totalTime').html(totalMinutes + ":" + totalSeconds)
+  //if count is single-digit, add a leading zero
+  if (count < 10) {
+    $('#countDown').html(':0' + count);
+  }
+  else {
+    $('#countDown').html(':' + count);
+  }//end if/else
+  //if totalSeconds is single-digit, add a leading zero
+  if (totalSeconds < 10) {
+    $('#totalTime').html(totalMinutes + ":0" + totalSeconds);
+  }
+  else {
+    $('#totalTime').html(totalMinutes + ":" + totalSeconds);
+  }//end if/else
   if (totalSeconds === 0) {
     console.log('in seconds if');
     if (totalMinutes === 0){
@@ -36,10 +48,23 @@ var interval = setInterval(function(){
       //--------sell all fruit, display earnings, stop loop
       for (var i = 0; inventory.length; ) {
         sellFruit(inventory[i].name);
-        //display earnings
-
       }
       clearInterval(interval);
+      //display end game messages
+      $('#standStatus').html('The Fruit Stand is closed!');
+      $('#totalTime').html('');
+      if (totalMonies > 100) {
+        $('#myWallet').append('<br/><text>You earned ' + (totalMonies - 100).toLocaleString('USD', {style: 'currency', currency: "USD"}) + ' </text>');
+      }
+      else if(totalMonies === 100){
+        $('#myWallet').append('<br/><text>You broke even!</text>');
+      }
+      else {
+        $('#myWallet').append('<br/><text>You lost ' + ((totalMonies - 100) * -1).toLocaleString('USD', {style: 'currency', currency: "USD"}) + ' </text>');
+      }
+
+      $('#priceChange').html('Thanks for shopping!');
+      $('#countDown').html('');
     }
     else {
       totalMinutes--;
