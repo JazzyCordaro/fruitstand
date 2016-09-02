@@ -1,8 +1,8 @@
 console.log('sourced');
 //count starts at 15 in html file, setting to 14 here will start the decrementing on the first interval
-var count = 14;
-var totalMinutes = 4;
-var totalSeconds = 59;
+var count = 5;
+var totalMinutes = 0;
+var totalSeconds = 5;
 var totalMonies = 100;
 var inventory = [];
 //set random initial price for each fruit
@@ -41,10 +41,20 @@ var interval = setInterval(function(){
   else {
     $('#totalTime').html(totalMinutes + ":" + totalSeconds);
   }//end if/else
+
+  if (count === 0 ){
+    count = 15;
+    updatePrices();
+    displayFruit();
+    //update prices
+    //update display
+  } else {
+    count--;
+  }//end if/else
+  //check timer
   if (totalSeconds === 0) {
-    console.log('in seconds if');
+    //if both minutes and seconds are zero
     if (totalMinutes === 0){
-      console.log('in minutes if');
       //--------sell all fruit, display earnings, stop loop
       for (var i = 0; inventory.length; ) {
         sellFruit(inventory[i].name);
@@ -66,24 +76,16 @@ var interval = setInterval(function(){
       $('#priceChange').html('Thanks for shopping!');
       $('#countDown').html('');
     }
+    //if minutes is > 0
     else {
       totalMinutes--;
       totalSeconds = 59;
     }//end if/else
   }
+  //if seconds > 0
   else {
     totalSeconds--;
   }//end outer if/else
-  if (count === 0 ){
-    count = 15;
-    updatePrices();
-    displayFruit();
-    //update prices
-    //update display
-  } else {
-    count--;
-  }//end if/else
-
 }, 1000);//end interval
 
 var buyFruit = function (fruit){
