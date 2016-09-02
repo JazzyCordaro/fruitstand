@@ -59,6 +59,7 @@ var interval = setInterval(function(){
       for (var i = 0; inventory.length; ) {
         sellFruit(inventory[i].name);
       }
+      //end interval
       clearInterval(interval);
       //display end game messages
       $('#standStatus').html('The Fruit Stand is closed!');
@@ -72,9 +73,14 @@ var interval = setInterval(function(){
       else {
         $('#myWallet').append('<br/><text>You lost ' + ((totalMonies - 100) * -1).toLocaleString('USD', {style: 'currency', currency: "USD"}) + ' </text>');
       }
-
       $('#priceChange').html('Thanks for shopping!');
       $('#countDown').html('');
+      //update buy/sell buttons
+      $('.btn-success').each(function(){
+        $(this).addClass('btn-danger');
+        $(this).html('Closed');
+        $(this).attr('onclick', '');
+      })
     }
     //if minutes is > 0
     else {
