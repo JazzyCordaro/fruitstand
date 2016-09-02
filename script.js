@@ -1,6 +1,8 @@
 console.log('sourced');
 //count starts at 15 in html file, setting to 14 here will start the decrementing on the first interval
 var count = 14;
+var totalMinutes = 4;
+var totalSeconds = 59;
 var totalMonies = 100;
 var inventory = [];
 //set random initial price for each fruit
@@ -15,16 +17,38 @@ var fruitsForSale = {
 $(document).ready(function(){
   for (var fruit in fruitsForSale) {
     $('#' + fruit + 'Price').html(fruitsForSale[fruit].price.toLocaleString('USD', {style: 'currency', currency: "USD"}));
+    //change sell buttons to can't sell
     $('#sell' + fruit.charAt(0).toUpperCase() + fruit.slice(1)).addClass('btn-danger');
     $('#sell' + fruit.charAt(0).toUpperCase() + fruit.slice(1)).html('Can\'t Sell');
   }
-  //change sell buttons to can't sell
+  $('#totalTime').html('5:00');
 });//end doc ready
 
 //every second, update the count, the prices, and the display
 var interval = setInterval(function(){
   console.log('in set interval');
   $('#countDown').html(':' + count);
+  $('#totalTime').html(totalMinutes + ":" + totalSeconds)
+  if (totalSeconds === 0) {
+    console.log('in seconds if');
+    if (totalMinutes === 0){
+      console.log('in minutes if');
+      //--------sell all fruit, display earnings, stop loop
+      for (var i = 0; inventory.length; ) {
+        sellFruit(inventory[i].name);
+        //display earnings
+
+      }
+      clearInterval(interval);
+    }
+    else {
+      totalMinutes--;
+      totalSeconds = 59;
+    }//end if/else
+  }
+  else {
+    totalSeconds--;
+  }//end outer if/else
   if (count === 0 ){
     count = 15;
     updatePrices();
@@ -34,6 +58,7 @@ var interval = setInterval(function(){
   } else {
     count--;
   }//end if/else
+
 }, 1000);//end interval
 
 var buyFruit = function (fruit){
@@ -52,7 +77,7 @@ var buyFruit = function (fruit){
     //if money is less than .50 stop interval
     if (totalMonies < 0.50 ){
       //-----------------------------stop loop---still necessary with sell button?
-      clearInterval(interval);
+      // clearInterval(interval); removed stop as user should be able to sell at this point
       alert('NO MORE MONIES!!!');
     }//end if
     //call displayFruit
