@@ -1,8 +1,8 @@
 console.log('sourced');
 //count starts at 15 in html file, setting to 14 here will start the decrementing on the first interval
-var count = 5;
-var totalMinutes = 0;
-var totalSeconds = 5;
+var count = 14;
+var totalMinutes = 4;
+var totalSeconds = 59;
 var totalMonies = 100;
 var inventory = [];
 //set random initial price for each fruit
