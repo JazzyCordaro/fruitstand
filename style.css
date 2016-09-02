@@ -49,6 +49,6 @@ background: linear-gradient(to left, #FFEEEE , #DDEFBB); /* W3C, IE 10+/ Edge, F
 
 }
 
-#applePrice, #orangePrice, #grapePrice, #bananaPrice{
+#redGrapePrice, #orangePrice, #grapePrice, #pearPrice{
   font-size: 20px;
 }
