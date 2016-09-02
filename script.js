@@ -2,8 +2,8 @@ console.log('sourced');
 //count starts at 15 in html file, setting to 14 here will start the decrementing on the first interval
 //similar logic for minutes & seconds
 var count = 14;
-var totalMinutes = 4;
-var totalSeconds = 59;
+var totalMinutes = 0;
+var totalSeconds = 5;
 var totalMonies = 100;
 var inventory = [];
 //set random initial price for each fruit
@@ -77,7 +77,7 @@ var interval = function(){
       else {
         $('#myWallet').append('<br/><text>You lost ' + ((totalMonies - 100) * -1).toLocaleString('USD', {style: 'currency', currency: "USD"}) + ' </text>');
       }
-      $('#priceChange').html('Thanks for shopping!');
+      $('#priceChange').html('Thank you, come again!');
       $('#countDown').html('');
       //update buy/sell buttons
       $('.btn-success').each(function(){
@@ -174,6 +174,7 @@ var displayFruit = function () {
   var grapeAveragePrice = grapeTotalPrice / grapes.length;
   var orangeAveragePrice = orangeTotalPrice / oranges.length;
   //end calculations
+
   //start display updates
   //convert totalMonies to USD and display
   $('#showMoney').html(totalMonies.toLocaleString('USD', {style: 'currency', currency: "USD"}));
