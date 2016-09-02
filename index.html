@@ -12,10 +12,17 @@
   <body>
     <h1>fruitStrap.toggle()!</h1>
 
+
 <div class="container" id="gameStats">
-  <div class="col-xs-6">The Fruit Stand is open!<br><text id="totalTime">0:00</text></div>
-  <div class="col-xs-6">Next price change in<br><text id="countDown">:15</text></div>
+<div class="row">
+  <div class="col-xs-4">The Fruit Stand is open!<br><text id="totalTime">0:00</text></div>
+  <div id="myWallet" class="col-xs-4">
+    You have: <text id="showMoney">$100.00</text>
+  </div>
+  <div class="col-xs-4">Next price change in<br><text id="countDown">:15</text></div>
 </div>
+</div>
+
 
 <div class="container" id="fruitMarket">
   <div class="row" id="fruitStand">
@@ -72,9 +79,7 @@
     <p>You spent<br><text id="totalPear">$0.00</text><br>on pears</p>
   </div>
 </div>
-<div id="myWallet" class="row col-xs-12">
-  You have: <text id="showMoney">$100.00</text></div>
-</div>
+
 
   </body>
 </html>
