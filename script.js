@@ -1,8 +1,9 @@
 console.log('sourced');
 //count starts at 15 in html file, setting to 14 here will start the decrementing on the first interval
+//similar logic for minutes & seconds
 var count = 14;
-var totalMinutes = 4;
-var totalSeconds = 59;
+var totalMinutes = 0;
+var totalSeconds = 5;
 var totalMonies = 100;
 var inventory = [];
 //set random initial price for each fruit
@@ -24,8 +25,11 @@ $(document).ready(function(){
   $('#totalTime').html('5:00');
 });//end doc ready
 
+//create container var for interval function so we can clear it later
+var intervalContainer;
+
 //every second, update the count, the prices, and the display
-var interval = setInterval(function(){
+var interval = function(){
   console.log('in set interval');
   //if count is single-digit, add a leading zero
   if (count < 10) {
@@ -60,7 +64,7 @@ var interval = setInterval(function(){
         sellFruit(inventory[i].name);
       }
       //end interval
-      clearInterval(interval);
+      clearInterval(intervalContainer);
       //display end game messages
       $('#standStatus').html('The Fruit Stand is closed!');
       $('#totalTime').html('');
@@ -93,7 +97,7 @@ var interval = setInterval(function(){
   else {
     totalSeconds--;
   }//end outer if/else
-}, 1000);//end interval
+};//end interval
 
 //calls displayFruit, called by buttons
 var buyFruit = function (fruit){
@@ -310,6 +314,16 @@ var sellFruit = function(fruit){
     }//end if
   }//end for
 };//end sellFruit
+
+//remove the start button, show 'market open' messages, start interval
+var startMarket = function(){
+  $('#startButton').remove();
+  $('#message').show();
+  $('#totalTime').show();
+  $('#walletText').show();
+  $('#priceChange').show();
+  intervalContainer = setInterval(interval, 1000);
+};//end startMarket
 
 //called by interval
 var updatePrices = function () {
