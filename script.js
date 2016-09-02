@@ -5,8 +5,8 @@ var totalMonies = 100;
 var inventory = [];
 //set random initial price for each fruit
 var fruitsForSale = {
-  banana: {price: (Math.floor(Math.random() * 950) + 50)/100},
-  apple: {price: (Math.floor(Math.random() * 950) + 50)/100},
+  pear: {price: (Math.floor(Math.random() * 950) + 50)/100},
+  redGrape: {price: (Math.floor(Math.random() * 950) + 50)/100},
   grape: {price: (Math.floor(Math.random() * 950) + 50)/100},
   orange: {price: (Math.floor(Math.random() * 950) + 50)/100}
 };
@@ -63,18 +63,18 @@ var buyFruit = function (fruit){
 //calculates inventory $$ amounts, updates full display
 var displayFruit = function () {
   //create individual fruit arrays
-  var apples = [];
-  var bananas = [];
+  var redGrapes = [];
+  var pears = [];
   var grapes = [];
   var oranges = [];
   //filter inventory into individual arrays
   for (var i = 0; i < inventory.length; i++) {
     switch (inventory[i].name) {
-      case 'apple':
-        apples.push(inventory[i]);
+      case 'redGrape':
+        redGrapes.push(inventory[i]);
         break;
-      case 'banana':
-        bananas.push(inventory[i]);
+      case 'pear':
+        pears.push(inventory[i]);
         break;
       case 'grape':
         grapes.push(inventory[i]);
@@ -85,13 +85,13 @@ var displayFruit = function () {
     }//close switch
   }//close for
   // calculate total price of each type of fruit
-  var appleTotalPrice = 0;
-  for (var i = 0; i < apples.length; i++) {
-    appleTotalPrice += apples[i].price;
+  var redGrapeTotalPrice = 0;
+  for (var i = 0; i < redGrapes.length; i++) {
+    redGrapeTotalPrice += redGrapes[i].price;
   }
-  var bananaTotalPrice = 0;
-  for (var i = 0; i < bananas.length; i++) {
-    bananaTotalPrice += bananas[i].price;
+  var pearTotalPrice = 0;
+  for (var i = 0; i < pears.length; i++) {
+    pearTotalPrice += pears[i].price;
   }
   var grapeTotalPrice = 0;
   for (var i = 0; i < grapes.length; i++) {
@@ -102,8 +102,8 @@ var displayFruit = function () {
     orangeTotalPrice += oranges[i].price;
   }
   // calculate average price of each type of fruit
-  var appleAveragePrice = appleTotalPrice / apples.length;
-  var bananaAveragePrice = bananaTotalPrice / bananas.length;
+  var redGrapeAveragePrice = redGrapeTotalPrice / redGrapes.length;
+  var pearAveragePrice = pearTotalPrice / pears.length;
   var grapeAveragePrice = grapeTotalPrice / grapes.length;
   var orangeAveragePrice = orangeTotalPrice / oranges.length;
   //end calculations
@@ -111,29 +111,29 @@ var displayFruit = function () {
   //convert totalMonies to USD and display
   $('#showMoney').html(totalMonies.toLocaleString('USD', {style: 'currency', currency: "USD"}));
   //update new prices of fruitsForSale
-  $('#applePrice').html(fruitsForSale.apple.price.toLocaleString('USD', {style: 'currency', currency: "USD"}));
+  $('#redGrapePrice').html(fruitsForSale.redGrape.price.toLocaleString('USD', {style: 'currency', currency: "USD"}));
   $('#orangePrice').html(fruitsForSale.orange.price.toLocaleString('USD', {style: 'currency', currency: "USD"}));
-  $('#bananaPrice').html(fruitsForSale.banana.price.toLocaleString('USD', {style: 'currency', currency: "USD"}));
+  $('#pearPrice').html(fruitsForSale.pear.price.toLocaleString('USD', {style: 'currency', currency: "USD"}));
   $('#grapePrice').html(fruitsForSale.grape.price.toLocaleString('USD', {style: 'currency', currency: "USD"}));
   //end fruit price update
   // create singluar/plural count string for each fruit and add to DOM
-  var appleCount = apples.length;
-  var bananaCount = bananas.length;
+  var redGrapeCount = redGrapes.length;
+  var pearCount = pears.length;
   var grapeCount = grapes.length;
   var orangeCount = oranges.length;
 
-  if (appleCount === 1) {
-    appleCount += ' apple';
+  if (redGrapeCount === 1) {
+    redGrapeCount += ' red grape';
   }
   else {
-    appleCount += ' apples';
+    redGrapeCount += ' red grapes';
   }
 
-  if (bananaCount === 1) {
-    bananaCount += ' banana';
+  if (pearCount === 1) {
+    pearCount += ' pear';
   }
   else {
-    bananaCount += ' bananas';
+    pearCount += ' pears';
   }
 
   if (grapeCount === 1) {
@@ -150,23 +150,23 @@ var displayFruit = function () {
     orangeCount += ' oranges';
   }
 
-  $('#appleCount').html(appleCount);
-  $('#bananaCount').html(bananaCount);
+  $('#redGrapeCount').html(redGrapeCount);
+  $('#pearCount').html(pearCount);
   $('#grapeCount').html(grapeCount);
   $('#orangeCount').html(orangeCount);
   //end fruit count update
   // format average price to USD and add to DOM
-  if (appleAveragePrice > 0){
-    $('#averageApple').html(appleAveragePrice.toLocaleString('USD', {style: 'currency', currency: "USD"}));
+  if (redGrapeAveragePrice > 0){
+    $('#averageRedGrape').html(redGrapeAveragePrice.toLocaleString('USD', {style: 'currency', currency: "USD"}));
   }
   else {
-    $('#averageApple').html('$0.00');
+    $('#averageRedGrape').html('$0.00');
   }
-  if (bananaAveragePrice > 0){
-    $('#averageBanana').html(bananaAveragePrice.toLocaleString('USD', {style: 'currency', currency: "USD"}));
+  if (pearAveragePrice > 0){
+    $('#averagePear').html(pearAveragePrice.toLocaleString('USD', {style: 'currency', currency: "USD"}));
   }
   else {
-    $('#averageBanana').html('$0.00');
+    $('#averagePear').html('$0.00');
   }
   if (grapeAveragePrice > 0){
     $('#averageGrape').html(grapeAveragePrice.toLocaleString('USD', {style: 'currency', currency: "USD"}));
@@ -182,8 +182,8 @@ var displayFruit = function () {
   }
   //end average price update
   //format total spent on each fruit to USD and add to DOM
-  $('#totalApple').html(appleTotalPrice.toLocaleString('USD', {style: 'currency', currency: "USD"}));
-  $('#totalBanana').html(bananaTotalPrice.toLocaleString('USD', {style: 'currency', currency: "USD"}));
+  $('#totalRedGrape').html(redGrapeTotalPrice.toLocaleString('USD', {style: 'currency', currency: "USD"}));
+  $('#totalPear').html(pearTotalPrice.toLocaleString('USD', {style: 'currency', currency: "USD"}));
   $('#totalGrape').html(grapeTotalPrice.toLocaleString('USD', {style: 'currency', currency: "USD"}));
   $('#totalOrange').html(orangeTotalPrice.toLocaleString('USD', {style: 'currency', currency: "USD"}));
   //end total price update
@@ -199,21 +199,21 @@ var displayFruit = function () {
     }//end if
   }//end for
   //update sale buttons
-  if (apples.length > 0) {
-    $('#sellApple').removeClass('btn-danger');
-    $('#sellApple').html('Sell!');
+  if (redGrapes.length > 0) {
+    $('#sellRedGrape').removeClass('btn-danger');
+    $('#sellRedGrape').html('Sell!');
   }//end if
   else {
-    $('#sellApple').addClass('btn-danger');
-    $('#sellApple').html('Can\'t Sell');
+    $('#sellRedGrape').addClass('btn-danger');
+    $('#sellRedGrape').html('Can\'t Sell');
   }//end else
-  if (bananas.length > 0) {
-    $('#sellBanana').removeClass('btn-danger');
-    $('#sellBanana').html('Sell!');
+  if (pears.length > 0) {
+    $('#sellPear').removeClass('btn-danger');
+    $('#sellPear').html('Sell!');
   }//end if
   else {
-    $('#sellBanana').addClass('btn-danger');
-    $('#sellBanana').html('Can\'t Sell');
+    $('#sellPear').addClass('btn-danger');
+    $('#sellPear').html('Can\'t Sell');
   }//end else
   if (grapes.length > 0) {
     $('#sellGrape').removeClass('btn-danger');
