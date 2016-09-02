@@ -43,7 +43,7 @@ var interval = setInterval(function(){
   }//end if/else
 
   if (count === 0 ){
-    count = 15;
+    count = 14;
     updatePrices();
     displayFruit();
     //update prices
@@ -79,9 +79,10 @@ var interval = setInterval(function(){
       $('.btn-success').each(function(){
         $(this).addClass('btn-danger');
         $(this).html('Closed');
+        //remove button functionality
         $(this).attr('onclick', '');
       })
-    }
+    }//end endgame
     //if minutes is > 0
     else {
       totalMinutes--;
@@ -107,12 +108,14 @@ var buyFruit = function (fruit){
       name: fruit,
       price: fruitsForSale[fruit].price,
     });//end push
+
     //if money is less than .50 stop interval
-    if (totalMonies < 0.50 ){
-      //-----------------------------stop loop---still necessary with sell button?
-      // clearInterval(interval); removed stop as user should be able to sell at this point
-      alert('NO MORE MONIES!!!');
-    }//end if
+    // if (totalMonies < 0.50 ){
+    //   //-----------------------------stop loop---still necessary with sell button?
+    //   // clearInterval(interval); removed stop as user should be able to sell at this point
+    //   alert('NO MORE MONIES!!!');
+    // }//end if
+    
     //call displayFruit
     displayFruit();
   }//end else
