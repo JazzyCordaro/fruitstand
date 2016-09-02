@@ -137,10 +137,10 @@ var displayFruit = function () {
   }
 
   if (grapeCount === 1) {
-    grapeCount += ' grape';
+    grapeCount += ' green grape';
   }
   else {
-    grapeCount += ' grapes';
+    grapeCount += ' green grapes';
   }
 
   if (orangeCount === 1) {
