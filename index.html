@@ -19,25 +19,25 @@
 
 <div class="container" id="fruitMarket">
   <div class="row" id="fruitStand">
-     <div class="col-xs-3" id="appleStand"><p id="applePrice">$1.00</p>
-         <p><img src="images/apple.png"></p>
-         <button onclick="buyFruit('apple')" class="btn-success" id="buyApple">Buy!</button></div>
+     <div class="col-xs-3" id="redGrapeStand"><p id="redGrapePrice">$1.00</p>
+         <p><img src="images/redgrape.png"></p>
+         <button onclick="buyFruit('redGrape')" class="btn-success" id="buyRedGrape">Buy!</button></div>
      <div class="col-xs-3" id="orangeStand"><p id="orangePrice">$1.00</p>
          <p><img src="images/orange.png"></p>
          <button onclick="buyFruit('orange')" class="btn-success" id="buyOrange">Buy!</button></div>
      <div class="col-xs-3" id="grapeStand"><p id="grapePrice">$1.00</p>
          <p><img src="images/grape.jpg"></p>
          <button onclick="buyFruit('grape')" class="btn-success" id="buyGrape">Buy!</button></div>
-     <div class="col-xs-3" id="bananaStand"><p id="bananaPrice">$1.00</p>
-         <p><img src="images/banana.jpg"></p>
-         <button onclick="buyFruit('banana')" class="btn-success" id="buyBanana">Buy!</button></div>
+     <div class="col-xs-3" id="pearStand"><p id="pearPrice">$1.00</p>
+         <p><img src="images/pear.png"></p>
+         <button onclick="buyFruit('pear')" class="btn-success" id="buyPear">Buy!</button></div>
   </div>
   <div class="row" id="myBasket">
-    <div class="col-xs-3" id="appleBasket">
-      <button onclick="sellFruit('apple')" class="btn-success" id="sellApple">Sell!</button>
-      <p><text id="appleCount">0 apples</text></p>
+    <div class="col-xs-3" id="redGrapeBasket">
+      <button onclick="sellFruit('redGrape')" class="btn-success" id="sellRedGrape">Sell!</button>
+      <p><text id="redGrapeCount">0 red grapes</text></p>
       <p><img src="images/basket.jpg" ></p>
-      <p>Average price: <text id="averageApple">$0.00</text></p></div>
+      <p>Average price: <text id="averageRedGrape">$0.00</text></p></div>
     <div class="col-xs-3" id="orangeBasket">
       <button onclick="sellFruit('orange')" class="btn-success" id="sellOrange">Sell!</button>
       <p><text id="orangeCount">0 oranges</text></p>
@@ -45,14 +45,14 @@
     <p>Average price: <text id="averageOrange">$0.00</text></p></div>
     <div class="col-xs-3" id="grapeBasket">
       <button onclick="sellFruit('grape')" class="btn-success" id="sellGrape">Sell!</button>
-      <p><text id="grapeCount">0 grapes</text></p>
+      <p><text id="grapeCount">0 green grapes</text></p>
       <p><img src="images/basket.jpg" ></p>
     <p>Average price: <text id="averageGrape">$0.00</text></p></div>
-    <div class="col-xs-3" id="bananaBasket">
-      <button onclick="sellFruit('banana')" class="btn-success" id="sellBanana">Sell!</button>
-      <p><text id="bananaCount">0 bananas</text></p>
+    <div class="col-xs-3" id="pearBasket">
+      <button onclick="sellFruit('pear')" class="btn-success" id="sellPear">Sell!</button>
+      <p><text id="pearCount">0 pears</text></p>
       <p><img src="images/basket.jpg" ></p>
-    <p>Average price: <text id="averageBanana">$0.00</text></p></div>
+    <p>Average price: <text id="averagePear">$0.00</text></p></div>
   </div>
 </div>
 
@@ -60,16 +60,16 @@
 <div class="container" id="userStats">
 <div class="row">
   <div class="col-xs-3">
-    <p>You spent<br><text id="totalApple">$0.00</text><br>on apples</p>
+    <p>You spent<br><text id="totalRedGrape">$0.00</text><br>on red grapes</p>
   </div>
   <div class="col-xs-3">
     <p>You spent<br><text id="totalOrange">$0.00</text><br>on oranges</p>
   </div>
   <div class="col-xs-3">
-    <p>You spent<br><text id="totalGrape">$0.00</text><br>on grapes</p>
+    <p>You spent<br><text id="totalGrape">$0.00</text><br>on green grapes</p>
   </div>
   <div class="col-xs-3">
-    <p>You spent<br><text id="totalBanana">$0.00</text><br>on bananas</p>
+    <p>You spent<br><text id="totalPear">$0.00</text><br>on pears</p>
   </div>
 </div>
 <div id="myWallet" class="row col-xs-12">
